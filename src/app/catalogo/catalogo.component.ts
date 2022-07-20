@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Juego } from '../juego';
+import { ListaJuegosService } from '../lista-juegos.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -9,9 +10,18 @@ import { Juego } from '../juego';
 export class CatalogoComponent implements OnInit {
   // lista de juegos
   catalogoJuegos: Juego[]=[];
-  constructor() { }
+
+  constructor(private listaJuegos : ListaJuegosService) { }
 
   ngOnInit(): void {
+    this.cargarCatalogo();
   }
-
+  // cargar catalogo
+  cargarCatalogo():void{
+    this.listaJuegos.obtenerListaDeJuegos().subscribe(
+      juegos =>{
+        console.log(juegos);
+      }
+    );
+  }
 }
