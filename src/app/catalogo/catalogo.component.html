@@ -1,4 +1,13 @@
-<!-- <ul>
-  <li *ngFor="let juego of juego">{{juego.title}}</li>
-</ul> -->
-<p>{{juego.title}}</p>
+<ul>
+  <li *ngFor="let item of catalogoJuegos">
+    <a href="/detalle" class="text-white">
+      <div class="card bg-dark" style="width: 18rem;">
+        <img src="{{item.thumbnail}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.genre}}</p>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>

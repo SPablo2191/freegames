@@ -1,6 +1,7 @@
-import { Juego } from './juego';
+import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { ApiGamesService } from './api-games.service';
+import { Observable } from 'rxjs';
 
 
 @Injectable({

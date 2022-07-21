@@ -1,4 +1,4 @@
-import { Juego } from './../juego';
+import { Juego } from './../Models/juego';
 import { Component, OnInit } from '@angular/core';
 import { ListaJuegosService } from '../lista-juegos.service';
 
@@ -9,8 +9,7 @@ import { ListaJuegosService } from '../lista-juegos.service';
 })
 export class CatalogoComponent implements OnInit {
   // lista de juegos
-  catalogoJuegos: Juego[]=[];
-  juego : any;
+  catalogoJuegos: Juego[] =[];
 
   constructor(private listaJuegos : ListaJuegosService) { }
 
@@ -20,12 +19,10 @@ export class CatalogoComponent implements OnInit {
   // cargar catalogo
   cargarCatalogo():void{
     this.listaJuegos.obtenerListaDeJuegos().subscribe(
-      juegos =>{
-        console.log(Object.values(juegos));
-        this.juego = juegos;
-        //let juego = this.nuevoJuego(juegos);
-        // this.catalogoJuegos = Object.values(juegos);
-        // console.log("hola"+ this.catalogoJuegos[0].title);
+      (juegos:any) =>{
+        console.log(juegos)
+        this.catalogoJuegos = juegos;
+        console.log(this.catalogoJuegos.length);
       }
     );
   }

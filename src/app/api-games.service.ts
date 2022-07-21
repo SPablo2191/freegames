@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiGamesService {
- private url = 'https://www.freetogame.com/api/game?id=452';
+ private url = 'https://www.freetogame.com/api/games';
  //private url  = 'https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49';
 
   constructor(private httpClient : HttpClient) { }
