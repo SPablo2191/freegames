@@ -19,7 +19,7 @@ export class CatalogoComponent implements OnInit {
   // cargar catalogo
   cargarCatalogo():void{
     this.listaJuegos.obtenerListaDeJuegos().subscribe(
-      (juegos:any) =>{
+      (juegos) =>{
         console.log(juegos)
         this.catalogoJuegos = juegos;
         console.log(this.catalogoJuegos.length);

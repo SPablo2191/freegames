@@ -1,3 +1,4 @@
+import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
@@ -32,6 +33,6 @@ export class ApiGamesService {
     // .set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 
 
-    return this.httpClient.get(this.url);
+    return this.httpClient.get<Juego[]>(this.url);
   }
 }
