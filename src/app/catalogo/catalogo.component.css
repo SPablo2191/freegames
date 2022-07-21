@@ -12,3 +12,9 @@ li{
 li a{
   text-decoration: none;
 }
+.tarjeta:hover{
+  box-shadow: 5px 5px 5px black;
+}
+li a :hover{
+  background-color: #121820;
+}
