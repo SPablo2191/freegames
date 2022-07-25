@@ -15,6 +15,6 @@ li a{
 .tarjeta:hover{
   box-shadow: 5px 5px 5px black;
 }
-li a :hover{
+/* li a :hover{
   background-color: #121820;
-}
+} */
