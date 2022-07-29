@@ -1,3 +1,4 @@
+import { Catalogo } from './Models/Catalogo';
 import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { ApiGamesService } from './api-games.service';
@@ -8,14 +9,22 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ListaJuegosService {
-  listaJuegos: Juego[] = [];
+  listaJuegos: Catalogo[] = [];
   constructor(private apiServicio : ApiGamesService) { }
 
   //traer lista de juegos
   obtenerListaDeJuegos(){
     return this.apiServicio.traerListaDejuegos();
   }
-  setJuego(juegos: Juego []){
-    this.listaJuegos = juegos;
-  }
+    //traer lista de juegos
+//   obtenerListaDeJuegos2(){
+//     this.apiServicio.traerListaDejuegos().subscribe(res =>
+//       {
+
+//       }
+//     );
+// }
+setJuego(juegos: Juego []){
+  this.listaJuegos = juegos;
+}
 }

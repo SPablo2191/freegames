@@ -1,0 +1,16 @@
+h1{
+  color: var(--primary-color-text);
+}
+
+.my_card{
+  border-color:var(--surface-50);
+  border-radius: 5rem;
+
+}
+.descripcion{
+  background-color: red !important;
+}
+.uLista{
+  display: inline-block;
+  list-style-type:none;
+}

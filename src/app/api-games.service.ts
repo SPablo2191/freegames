@@ -1,13 +1,14 @@
+import { Catalogo } from './Models/Catalogo';
 import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGamesService {
- private url = 'https://www.freetogame.com/api/games';
- //private url  = 'https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49';
-
+ private url  = 'https://www.freetogame.com/api';
+ private catalogo : Catalogo[] = [];
   constructor(private httpClient : HttpClient) { }
 
 
@@ -32,7 +33,27 @@ export class ApiGamesService {
     // .set("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
     // .set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 
+    let endpoint = '/games?sort-by=popularity';
 
-    return this.httpClient.get<Juego[]>(this.url);
+    return this.httpClient.get<Juego[]>(this.url+endpoint)
+    .pipe(
+      map(
+        (juego:Juego[])=>{
+          juego.forEach(element => {
+              this.catalogo.push({'id':element.id,'title':element.title,'thumbnail':element.thumbnail,'genre':element.genre,'release_date': element.release_date});
+          });
+          return this.catalogo;
+        }
+      )
+    )
+
+    ;
+  }
+  traerJuego(id : string){
+    let params = new HttpParams();
+    params = params.append('id',id);
+
+    //let endpoint = '/game?id='+id;
+    return this.httpClient.get<Juego>(this.url+'/game',{params: params});
   }
 }

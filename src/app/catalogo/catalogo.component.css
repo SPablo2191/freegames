@@ -18,3 +18,11 @@ li a{
 /* li a :hover{
   background-color: #121820;
 } */
+input{
+  background-color: var(--surface-800);
+  color: var(-surface-0);
+}
+input :focus{
+  border: 1px solid #1670BE;
+  box-shadow: 0 0 3px #1670BE;
+}

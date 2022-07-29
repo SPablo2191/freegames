@@ -1,3 +1,4 @@
+import { Catalogo } from './../Models/Catalogo';
 import { FiltroComponent } from './../filtro/filtro.component';
 import { Juego } from './../Models/juego';
 import { Component, OnInit } from '@angular/core';
@@ -13,15 +14,15 @@ import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 })
 export class CatalogoComponent implements OnInit {
   // lista de juegos
-  catalogoJuegos: Juego[] =[];
+  catalogoJuegos: Catalogo[] =[];
   //instanciar iconos
 
 
   constructor(private listaJuegos : ListaJuegosService,
-    private dialogRef : MatDialog) { 
-    
+    private dialogRef : MatDialog) {
+
   }
-  
+
   ngOnInit(): void {
     this.cargarCatalogo();
   }
@@ -31,7 +32,6 @@ export class CatalogoComponent implements OnInit {
       (juegos) =>{
         console.log(juegos)
         this.catalogoJuegos = juegos;
-        console.log(this.catalogoJuegos.length);
       }
     );
   }

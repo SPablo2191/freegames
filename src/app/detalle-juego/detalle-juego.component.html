@@ -1,1 +1,61 @@
-<p>detalle-juego works!</p>
+<div class="container-fluid m-2">
+  <div class="row">
+    <div class="col" >
+      <button class="btn btn-dark m-1" (click)="volverCatalogo()">Volver al catalogo</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-auto">
+      <div class="card my_card rounded" style="width: 25rem;">
+        <div class="card-header bg-dark">
+          <h5 class="text-center"> {{juego.title}} </h5>
+        </div>
+        <img src="{{juego.thumbnail}}" alt="">
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item bg-dark text-white">Genero: {{juego.genre}}</li>
+          <li class="list-group-item bg-dark text-white">Fecha de Lanzamiento: {{juego.release_date}}</li>
+          <li class="list-group-item bg-dark text-white">Creado por: {{juego.publisher}}</li>
+          <li class="list-group-item bg-dark text-white">Plataforma: {{juego.platform}}</li>
+        </ul>
+        <div class="card-body bg-secondary">
+          {{juego.short_description}}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="accordion bg-dark rounded" id="accordionExample">
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header " id="headingOne">
+            <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h4>Descripción</h4>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>{{juego.description}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header bg-dark" id="headingTwo">
+            <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
