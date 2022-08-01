@@ -1,14 +1,17 @@
+import { Capturas } from './Models/Capturas';
 import { Catalogo } from './Models/Catalogo';
 import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs';
+import { __values } from 'tslib';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGamesService {
  private url  = 'https://www.freetogame.com/api';
  private catalogo : Catalogo[] = [];
+ private carrousel : Capturas[] = [];
   constructor(private httpClient : HttpClient) { }
 
 
@@ -55,5 +58,31 @@ export class ApiGamesService {
 
     //let endpoint = '/game?id='+id;
     return this.httpClient.get<Juego>(this.url+'/game',{params: params});
+  }
+  traerCarouselJuegos(){
+    for (let index = 0; index < 5; index++) {
+      let id = this.getRandomArbitrary(1,300);
+      this.traerCapturaJuego(id.toString()).subscribe(
+        (captura)=>{
+          this.carrousel.push(captura);
+        }
+      );
+    }
+    return this.carrousel;
+  }
+ getRandomArbitrary(min :number, max:number) {
+    return Math.random() * (max - min) + min;
+  }
+
+  traerCapturaJuego(id:string){
+    return this.traerJuego(id).pipe(
+      map(
+        (juego:Juego)=>{
+          console.log({'id':juego.screenshots[0].id,'image':juego.screenshots[0].image})
+          return {'id':juego.screenshots[0].id,'image':juego.screenshots[0].image};
+        }
+
+      )
+    );
   }
 }

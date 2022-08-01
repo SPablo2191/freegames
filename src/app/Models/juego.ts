@@ -1,3 +1,5 @@
+import { RequerimietosMinimos } from './RequerimientosMinimos';
+import { Capturas } from './Capturas';
 import { Genero } from './Genero';
 import { Plataforma } from './Plataforma';
 export interface Juego{
@@ -12,4 +14,6 @@ publisher:              string;
 developer:              string;
 release_date:           string;
 freetogame_profile_url: string;
+screenshots: Capturas[];
+minimum_system_requirements: RequerimietosMinimos;
 }

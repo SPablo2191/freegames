@@ -16,6 +16,9 @@ export class ListaJuegosService {
   obtenerListaDeJuegos(){
     return this.apiServicio.traerListaDejuegos();
   }
+  obtenerCarousel(){
+    return this.apiServicio.traerCarouselJuegos();
+  }
     //traer lista de juegos
 //   obtenerListaDeJuegos2(){
 //     this.apiServicio.traerListaDejuegos().subscribe(res =>

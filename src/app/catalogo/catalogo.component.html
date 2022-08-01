@@ -1,7 +1,7 @@
-<div class=" d-flex justify-content-center " >
-<h1 style="margin: 2rem;">Catálogo de Juegos</h1>
+<div class=" container-fluid d-flex justify-content-center " >
+<!-- <h1 style="margin: 2rem;">Catálogo de Juegos</h1> -->
 </div>
-<div class=" d-flex justify-content-center">
+<!-- <div class=" d-flex justify-content-center">
   <button class="btn" (click)="abrirFiltros()" matTooltip="Filtrar Juegos">
     <fa-icon [icon]="'filter'" class="text-white"></fa-icon>
   </button>
@@ -11,7 +11,16 @@
 <button class="btn">
   <fa-icon [icon]="'magnifying-glass'" class="text-white"></fa-icon>
 </button>
-</div>
+</div> -->
+
+<!-- carousel -->
+<p-carousel [value]="carousel">
+  <ng-template let-car pTemplate="item">
+      Content to display
+  </ng-template>
+</p-carousel>
+
+
 <!-- catalogo bien distribuido -->
 <div class="container text-center p-3">
   <div class="row"  >

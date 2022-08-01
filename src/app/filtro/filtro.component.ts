@@ -1,3 +1,6 @@
+import { Plataforma } from './../Models/Plataforma';
+import { Catalogo } from './../Models/Catalogo';
+import { Genero } from './../Models/Genero';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filtro.component.css']
 })
 export class FiltroComponent implements OnInit {
-
+  listaCategorias = Genero;
+  listaPlataforma = Plataforma;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

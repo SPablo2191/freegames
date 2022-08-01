@@ -1,19 +1,71 @@
-<div class="container">
+<div class="container-fluid " >
   <div class="row">
     <div class="col">
       <h2>Filtrar por...</h2>
     </div>
+    <!-- <div class="col">
+      <button mat-button mat-dialog-close class="btn-close"></button>
+    </div> -->
   </div>
+
+  <!-- categorias -->
   <div class="row">
     <div class="col">
       <h4>Categorias:</h4>
       <hr>
+      <div class="container d-flex justify-content-center">
+        <div class="col">
+          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:1:5">
+            <mat-checkbox  class="p-2" name="{{item.key}}">
+              {{item.key}}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:5:9">
+            <mat-checkbox  class="p-2" name="{{item.key}}">
+              {{item.key}}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:9:13">
+            <mat-checkbox  class="p-2" name="{{item.key}}">
+              {{item.key}}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="col ">
+          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:13">
+            <mat-checkbox  class="p-2" name="{{item.key}}">
+              {{item.key}}
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- plataformas -->
     </div>
+    <div class="row">
+      <div class="col-11">
+        <h4>Plataformas</h4>
+        <hr>
+        <ul class="listaFiltro">
+          <li  *ngFor="let item of listaPlataforma | keyvalue">
+            <mat-checkbox  class="p-2" name="{{item.key}}">
+              {{item.value}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </div>
+    </div>
+
   </div>
   <div class="row">
     <div class="col">
       <mat-dialog-actions>
-        <button mat-button mat-dialog-close type="button" class="btn" aria-label="Close">cerrar</button>
+        <button mat-button mat-dialog-close type="button" class="btn btn-primary" aria-label="Close">cerrar</button>
       </mat-dialog-actions>
     </div>
   </div>

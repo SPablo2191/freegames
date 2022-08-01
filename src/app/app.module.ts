@@ -23,11 +23,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //primeng
 import { FieldsetModule } from 'primeng/fieldset';
-
+import {CheckboxModule} from 'primeng/checkbox';
+import {CarouselModule} from 'primeng/carousel';
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDialogModule,
     BrowserAnimationsModule,
     FieldsetModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CheckboxModule,
+    MatCheckboxModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
