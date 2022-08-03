@@ -1,9 +1,10 @@
-import { Capturas } from './Models/Capturas';
+import { Caratula } from './Models/Caratula';
+
 import { Catalogo } from './Models/Catalogo';
 import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs';
+import { catchError, EMPTY, map } from 'rxjs';
 import { __values } from 'tslib';
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ import { __values } from 'tslib';
 export class ApiGamesService {
  private url  = 'https://www.freetogame.com/api';
  private catalogo : Catalogo[] = [];
- private carrousel : Capturas[] = [];
+ private caratulas : Caratula[] = [];
+ private juegos:Juego[]=[]
+
+
+
   constructor(private httpClient : HttpClient) { }
 
 
@@ -42,9 +47,14 @@ export class ApiGamesService {
     .pipe(
       map(
         (juego:Juego[])=>{
+
+          this.juegos=(juego)
           juego.forEach(element => {
-              this.catalogo.push({'id':element.id,'title':element.title,'thumbnail':element.thumbnail,'genre':element.genre,'release_date': element.release_date});
+            this.catalogo.push({'id':element.id,'title':element.title,'thumbnail':element.thumbnail,'genre':element.genre,'release_date': element.release_date});
+
           });
+
+
           return this.catalogo;
         }
       )
@@ -52,6 +62,7 @@ export class ApiGamesService {
 
     ;
   }
+
   traerJuego(id : string){
     let params = new HttpParams();
     params = params.append('id',id);
@@ -59,30 +70,69 @@ export class ApiGamesService {
     //let endpoint = '/game?id='+id;
     return this.httpClient.get<Juego>(this.url+'/game',{params: params});
   }
-  traerCarouselJuegos(){
-    for (let index = 0; index < 5; index++) {
-      let id = this.getRandomArbitrary(1,300);
-      this.traerCapturaJuego(id.toString()).subscribe(
-        (captura)=>{
-          this.carrousel.push(captura);
-        }
-      );
-    }
-    return this.carrousel;
+
+  traerCapturas(id : string){
+    let params = new HttpParams();
+    params = params.append('id',id);
+
+    return this.httpClient.get<Juego>(this.url+'/game',{params: params}).pipe(
+      map(juego=>{
+        return {'id': juego.id,'title': juego.title,'screenshots': juego.screenshots[0].image} as Caratula;
+      })
+    );
+
+  }
+  traerCaratulaJuego(){
+
+    this.juegos.forEach(
+      (juego:Juego) =>{
+        //this.juego1 = this.traerJuego2(juego.id.toString());
+        //console.log(this.juego1);
+
+        // .pipe(
+        //   map(
+        //     (juego:Juego)=>{
+        //       this.caratulas.push({'id': juego.id,'title': juego.title,'screenshots': juego.screenshots});
+        //       console.log(this.caratulas);
+
+        //     }
+        //   )
+        // )
+      }
+    )
+    //console.log('hola',this.juego1.id);
+    // console.log('hola',this.catalogo);
+    // this.catalogo.forEach((catalogo:Catalogo) =>{
+    //   console.log(catalogo.id);
+    //   this.traerJuego(catalogo.id.toString()).subscribe(
+    //     (juegoDetallado : Juego) =>{
+    //       console.log(juegoDetallado.id);
+    //       this.caratulas.push({'id': catalogo.id,'title': catalogo.title,'screenshots': juegoDetallado.screenshots});
+    //     }
+    //   )
+    // });
+
+
+  }
+  getCaratulas(){
+    return this.caratulas;
   }
  getRandomArbitrary(min :number, max:number) {
-    return Math.random() * (max - min) + min;
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  traerCaratulas(){
+    console.log('hola',this.catalogo.length,this.catalogo);
+    this.catalogo.forEach(catalogoIndividual=>{
+      console.log(catalogoIndividual.title);
+      this.traerCapturas(catalogoIndividual.id.toString()).subscribe((juego)=>{
+         let datos = juego;
+         console.log(datos);
+         this.caratulas.push(datos);
+      });
+    });
+    return this.caratulas;
   }
 
-  traerCapturaJuego(id:string){
-    return this.traerJuego(id).pipe(
-      map(
-        (juego:Juego)=>{
-          console.log({'id':juego.screenshots[0].id,'image':juego.screenshots[0].image})
-          return {'id':juego.screenshots[0].id,'image':juego.screenshots[0].image};
-        }
-
-      )
-    );
-  }
 }

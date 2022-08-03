@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FieldsetModule } from 'primeng/fieldset';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CarouselModule} from 'primeng/carousel';
+import {ImageModule} from 'primeng/image';
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -51,7 +52,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTooltipModule,
     CheckboxModule,
     MatCheckboxModule,
-    CarouselModule
+    CarouselModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

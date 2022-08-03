@@ -14,9 +14,11 @@
 </div> -->
 
 <!-- carousel -->
-<p-carousel [value]="carousel">
+<p-carousel [value]="carousel" [numVisible]="3" [numScroll]="1" >
   <ng-template let-car pTemplate="item">
-      Content to display
+    <div *ngFor="let item of carousel">
+      <img src="{{item.screenshots}}" alt="">
+    </div>
   </ng-template>
 </p-carousel>
 

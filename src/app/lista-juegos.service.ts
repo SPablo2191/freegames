@@ -2,7 +2,7 @@ import { Catalogo } from './Models/Catalogo';
 import { Juego } from './Models/juego';
 import { Injectable } from '@angular/core';
 import { ApiGamesService } from './api-games.service';
-import { Observable, Subject } from 'rxjs';
+
 
 
 @Injectable({
@@ -16,9 +16,7 @@ export class ListaJuegosService {
   obtenerListaDeJuegos(){
     return this.apiServicio.traerListaDejuegos();
   }
-  obtenerCarousel(){
-    return this.apiServicio.traerCarouselJuegos();
-  }
+
     //traer lista de juegos
 //   obtenerListaDeJuegos2(){
 //     this.apiServicio.traerListaDejuegos().subscribe(res =>
@@ -29,5 +27,11 @@ export class ListaJuegosService {
 // }
 setJuego(juegos: Juego []){
   this.listaJuegos = juegos;
+}
+obtenerCaratulas(){
+  return this.apiServicio.traerCaratulas();
+}
+obtenerCaptura(id : number){
+  return this.apiServicio.traerCapturas(id.toString());
 }
 }

@@ -1,3 +1,4 @@
+import { Caratula } from './../Models/Caratula';
 import { Capturas } from './../Models/Capturas';
 import { Catalogo } from './../Models/Catalogo';
 import { FiltroComponent } from './../filtro/filtro.component';
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListaJuegosService } from '../lista-juegos.service';
 import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { Carousel } from 'primeng/carousel';
+import { catchError } from 'rxjs';
 
 //iconos
 
@@ -17,7 +19,7 @@ import { Carousel } from 'primeng/carousel';
 export class CatalogoComponent implements OnInit {
   // lista de juegos
   catalogoJuegos: Catalogo[] =[];
-  carousel : Capturas [] = [];
+  carousel : Caratula [] = [];
   //instanciar iconos
 
 
@@ -28,21 +30,36 @@ export class CatalogoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarCatalogo();
-    this.cargarCarousel();
+    //this.cargarCarousel();
   }
   // cargar catalogo
   cargarCatalogo():void{
     this.listaJuegos.obtenerListaDeJuegos().subscribe(
       (juegos) =>{
-        console.log(this.catalogoJuegos);
+
         this.catalogoJuegos = juegos;
+        console.log(this.catalogoJuegos);
+        this.cargarCarousel();
       }
     );
   }
   //cargar carousel
   cargarCarousel(){
-    this.carousel = this.listaJuegos.obtenerCarousel();
-    console.log(this.listaJuegos.obtenerCarousel());
+    // this.catalogoJuegos.forEach(catalogoIndividual=>{
+    //   console.log(catalogoIndividual.title);
+    //   this.listaJuegos.obtenerCaptura(catalogoIndividual.id).subscribe((juego)=>{
+    //      let datos = juego;
+    //      this.carousel.push(datos);
+    //   });
+    // });
+    for (let index = 0; index < 6; index++) {
+      this.listaJuegos.obtenerCaptura(this.catalogoJuegos[index].id).subscribe((juego)=>{
+        let datos = juego;
+        this.carousel.push(datos);
+     });
+
+    };
+    console.log(this.carousel);
   }
   //retornar substring
   anioLanzamiento(anio : string){
