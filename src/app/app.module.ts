@@ -26,10 +26,16 @@ import { FieldsetModule } from 'primeng/fieldset';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CarouselModule} from 'primeng/carousel';
 import {ImageModule} from 'primeng/image';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CardModule} from 'primeng/card';
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CarouselComponent } from './carousel/carousel.component';
+
+//coreUI
+//import { CarouselModule } from '@coreui/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +44,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ErrorComponent,
     DetalleJuegoComponent,
     FiltroComponent,
+    CarouselComponent,
 
   ],
   imports: [
@@ -52,8 +59,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTooltipModule,
     CheckboxModule,
     MatCheckboxModule,
-    CarouselModule,
-    ImageModule
+    ImageModule,
+    ProgressSpinnerModule,
+    CardModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

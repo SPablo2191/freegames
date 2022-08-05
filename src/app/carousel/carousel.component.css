@@ -1,0 +1,13 @@
+
+.contenedor{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+
+}
+.caratula{
+  height: 25rem;
+  width: 100%;
+}
+

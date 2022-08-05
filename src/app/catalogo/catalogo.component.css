@@ -12,17 +12,15 @@ li{
 li a{
   text-decoration: none;
 }
-.tarjeta:hover{
-  box-shadow: 5px 5px 5px black;
+
+:host ::ng-deep .tarjeta:hover{
+  background-color: black !important;
+  transform: scale(0.9);
 }
-/* li a :hover{
-  background-color: #121820;
-} */
+
 input{
   background-color: var(--surface-800);
   color: var(-surface-0);
 }
-input :focus{
-  border: 1px solid #1670BE;
-  box-shadow: 0 0 3px #1670BE;
-}
+
+

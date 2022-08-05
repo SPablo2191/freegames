@@ -1,13 +1,10 @@
 import { Caratula } from './../Models/Caratula';
-import { Capturas } from './../Models/Capturas';
 import { Catalogo } from './../Models/Catalogo';
 import { FiltroComponent } from './../filtro/filtro.component';
-import { Juego } from './../Models/juego';
 import { Component, OnInit } from '@angular/core';
 import { ListaJuegosService } from '../lista-juegos.service';
 import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import { Carousel } from 'primeng/carousel';
-import { catchError } from 'rxjs';
+
 
 //iconos
 
@@ -20,7 +17,26 @@ export class CatalogoComponent implements OnInit {
   // lista de juegos
   catalogoJuegos: Catalogo[] =[];
   carousel : Caratula [] = [];
-  //instanciar iconos
+  //mostrar item de carousel
+  responsiveOptions = [
+    {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+    }
+];
+  caratulaVisible : boolean = false;
+  catalogoVisible : boolean = false;
 
 
   constructor(private listaJuegos : ListaJuegosService,
@@ -29,8 +45,9 @@ export class CatalogoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('hola',this.carousel);
     this.cargarCatalogo();
-    //this.cargarCarousel();
+    console.log('hola',this.carousel);
   }
   // cargar catalogo
   cargarCatalogo():void{
@@ -40,26 +57,20 @@ export class CatalogoComponent implements OnInit {
         this.catalogoJuegos = juegos;
         console.log(this.catalogoJuegos);
         this.cargarCarousel();
+        this.catalogoVisible = true;
       }
     );
   }
   //cargar carousel
   cargarCarousel(){
-    // this.catalogoJuegos.forEach(catalogoIndividual=>{
-    //   console.log(catalogoIndividual.title);
-    //   this.listaJuegos.obtenerCaptura(catalogoIndividual.id).subscribe((juego)=>{
-    //      let datos = juego;
-    //      this.carousel.push(datos);
-    //   });
-    // });
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < 3; index++) {
       this.listaJuegos.obtenerCaptura(this.catalogoJuegos[index].id).subscribe((juego)=>{
         let datos = juego;
         this.carousel.push(datos);
      });
-
     };
-    console.log(this.carousel);
+    this.caratulaVisible = true;
+    console.log('anashe',this.carousel,this.caratulaVisible);
   }
   //retornar substring
   anioLanzamiento(anio : string){

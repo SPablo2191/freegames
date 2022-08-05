@@ -1,8 +1,8 @@
-
 import { Juego } from './../Models/juego';
+
 import { ApiGamesService } from './../api-games.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class DetalleJuegoComponent implements OnInit {
   //id del juego
   id: string = '';
   //juego
-  juego : any;
+  juego : Juego = {} as Juego;
 
   constructor(private activateRouter : ActivatedRoute,
     private servicioJuegos : ApiGamesService,
@@ -28,6 +28,6 @@ export class DetalleJuegoComponent implements OnInit {
     });
   }
   volverCatalogo(){
-    this.router.navigate(['/catalogo']);
+    this.router.navigate(['/']);
   }
 }

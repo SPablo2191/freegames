@@ -41,7 +41,7 @@ export class ApiGamesService {
     // .set("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
     // .set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 
-    let endpoint = '/games?sort-by=popularity';
+    let endpoint = '/games?sort-by=relevance';
 
     return this.httpClient.get<Juego[]>(this.url+endpoint)
     .pipe(

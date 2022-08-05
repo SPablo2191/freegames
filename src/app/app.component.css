@@ -8,3 +8,7 @@ h1{
   width:100%;
   height:60px;   /* Height of the footer */
 }
+input :focus{
+  border: 1px solid #E50914  !important;
+  box-shadow: 0 0 3px #E50914 !important;
+}

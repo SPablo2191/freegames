@@ -1,5 +1,7 @@
-h1{
-  color: var(--primary-color-text);
+.titulo{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 .my_card{
@@ -13,4 +15,9 @@ h1{
 .uLista{
   display: inline-block;
   list-style-type:none;
+}
+.caratula{
+  height: 25rem;
+  width: 100%;
+  filter: blur(2.5px);
 }
