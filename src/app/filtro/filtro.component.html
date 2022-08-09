@@ -1,12 +1,5 @@
-<div class="container-fluid " >
-  <div class="row">
-    <div class="col">
-      <h2>Filtrar por...</h2>
-    </div>
-    <!-- <div class="col">
-      <button mat-button mat-dialog-close class="btn-close"></button>
-    </div> -->
-  </div>
+<div class="container mr-4" >
+
 
   <!-- categorias -->
   <div class="row">
@@ -16,7 +9,7 @@
       <div class="container d-flex justify-content-center">
         <div class="col">
           <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:1:5">
-            <mat-checkbox  class="p-2" name="{{item.key}}">
+            <mat-checkbox [color]="{name: 'Warn', completed: false, color: 'warn'}"  class="p-2" name="{{item.key}}">
               {{item.key}}
             </mat-checkbox>
           </div>
@@ -61,13 +54,6 @@
       </div>
     </div>
 
-  </div>
-  <div class="row">
-    <div class="col">
-      <mat-dialog-actions>
-        <button mat-button mat-dialog-close type="button" class="btn btn-primary" aria-label="Close">cerrar</button>
-      </mat-dialog-actions>
-    </div>
   </div>
 </div>
 

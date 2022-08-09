@@ -11,7 +11,7 @@
     </ng-template>
   </div>
   <div class="row">
-    <h3>Todos los juegos:</h3>
+    <h2>Todos los juegos:</h2>
   </div>
   <div class="row">
 
@@ -37,7 +37,7 @@
 
   </div>
   <div class="row" *ngIf="idJuegoSeleccionado != ''">
-    <p-dialog [style]="{width: '80vw'}" [transitionOptions]="'250ms'" [modal]="true" [(visible)]="display" (onHide)="borrarId()" [breakpoints]="{'960px': '75vw', '640px': '100vw'}">
+    <p-dialog [style]="{width: '70vw'}" [transitionOptions]="'250ms'" [modal]="true" [(visible)]="display" (onHide)="borrarId()" [breakpoints]="{'960px': '75vw', '640px': '100vw'}">
       <app-detalle-juego [id]="idJuegoSeleccionado"></app-detalle-juego>
   </p-dialog>
 

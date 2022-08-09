@@ -6,7 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'', component: CatalogoComponent},
+  {path:'', component: HomeComponent},
   {path:'catalogo', component: CatalogoComponent},
   {path:'detalle/:id', component: DetalleJuegoComponent},
   {path:'**', component: ErrorComponent}

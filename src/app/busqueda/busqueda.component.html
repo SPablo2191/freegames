@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <h3>¡Encuentra tu nuevo juego favorito!</h3>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText  placeholder="Ingrese nombre de Juego...">
+      </span>
+    </div>
+    <!-- <div class="col">
+      <button class="btn" (click)="abrirFiltros()" matTooltip="filtrar juegos">
+        <fa-icon [icon]="'filter'" class="text-white"></fa-icon>
+        </button>
+    </div> -->
+    <div class="col">
+      <p-dialog header="Filtrar por..." [(visible)]="display" [modal]="true">
+        <app-filtro></app-filtro>
+      </p-dialog>
+      <button pButton matTooltip="Filtros" type="button" class="p-button-sm p-button-rounded p-button-secondary p-button-outlined" icon="pi pi-filter-fill" (click)="abrirFiltros()"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m-2">
+      <button pButton type="button"  icon="pi pi-search" label="Buscar" class="p-button-secondary"></button>
+    </div>
+  </div>
+</div>
+

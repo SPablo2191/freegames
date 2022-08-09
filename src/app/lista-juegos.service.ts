@@ -17,14 +17,6 @@ export class ListaJuegosService {
     return this.apiServicio.traerListaDejuegos();
   }
 
-    //traer lista de juegos
-//   obtenerListaDeJuegos2(){
-//     this.apiServicio.traerListaDejuegos().subscribe(res =>
-//       {
-
-//       }
-//     );
-// }
 setJuego(juegos: Juego []){
   this.listaJuegos = juegos;
 }

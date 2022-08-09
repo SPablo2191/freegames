@@ -29,11 +29,16 @@ import {ImageModule} from 'primeng/image';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CardModule} from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
+import {SidebarModule} from 'primeng/sidebar';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CarouselComponent } from './carousel/carousel.component';
+import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 //coreUI
 //import { CarouselModule } from '@coreui/angular';
@@ -46,6 +51,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     DetalleJuegoComponent,
     FiltroComponent,
     CarouselComponent,
+    BarraNavegacionComponent,
+    BusquedaComponent,
 
   ],
   imports: [
@@ -64,7 +71,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProgressSpinnerModule,
     CardModule,
     CarouselModule,
-    DialogModule
+    DialogModule,
+    SidebarModule,
+    ButtonModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
