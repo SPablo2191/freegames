@@ -28,6 +28,7 @@ import {CarouselModule} from 'primeng/carousel';
 import {ImageModule} from 'primeng/image';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CardModule} from 'primeng/card';
+import {DialogModule} from 'primeng/dialog';
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -62,7 +63,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     ImageModule,
     ProgressSpinnerModule,
     CardModule,
-    CarouselModule
+    CarouselModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

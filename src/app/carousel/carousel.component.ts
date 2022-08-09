@@ -9,11 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   @Input() juego ?: Caratula;
-  
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log('holis',this.juego);
 
   }
 

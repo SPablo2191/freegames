@@ -19,5 +19,5 @@
 .caratula{
   height: 25rem;
   width: 100%;
-  filter: blur(2.5px);
+  /* filter: blur(2.5px); */
 }

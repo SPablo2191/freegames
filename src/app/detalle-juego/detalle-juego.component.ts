@@ -1,7 +1,7 @@
 import { Juego } from './../Models/juego';
 
 import { ApiGamesService } from './../api-games.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 
 
@@ -12,19 +12,20 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class DetalleJuegoComponent implements OnInit {
   //id del juego
-  id: string = '';
+  @Input() id: string = '';
+
   //juego
   juego : Juego = {} as Juego;
 
-  constructor(private activateRouter : ActivatedRoute,
+  constructor(//private activateRouter : ActivatedRoute,
     private servicioJuegos : ApiGamesService,
     private router : Router) { }
 
   ngOnInit(): void {
-    this.id = this.activateRouter.snapshot.params['id'];
+    //this.id = this.activateRouter.snapshot.params['id'];
+
     this.servicioJuegos.traerJuego(this.id).subscribe(juego =>{
       this.juego = juego;
-      console.log(this.juego);
     });
   }
   volverCatalogo(){

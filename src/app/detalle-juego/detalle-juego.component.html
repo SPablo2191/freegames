@@ -1,20 +1,58 @@
-<div class="container-fluid m-2">
-  <p-carousel [value]="juego.screenshots"  [autoplayInterval]="9000" [circular]="true" [showNavigators]="false" [showIndicators]="false">
-    <ng-template let-imagen pTemplate="item" >
-      <div>
-        <img src="{{imagen.image}}" alt="" class="caratula">
-      </div>
-    </ng-template>
-  </p-carousel>
-  <h1>{{juego.title}}</h1>
-</div>
+<!-- <div>
+  <button class="btn btn-primary" (click)="volverCatalogo()">Volver al catalogo</button>
+</div> -->
 
-
-<div class="container-fluid m-2">
+<div class="container ">
   <div class="row">
-    <div class="col" >
-      <button class="btn btn-dark m-1" (click)="volverCatalogo()">Volver al catalogo</button>
+    <p-carousel [value]="juego.screenshots"  [autoplayInterval]="9000" [circular]="true" [showNavigators]="false" [showIndicators]="false">
+      <ng-template let-imagen pTemplate="item" >
+        <div>
+          <img src="{{imagen.image}}" alt="" class="caratula">
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div class="row ">
+    <div class="col">
+      <h1>{{juego.title}}</h1>
     </div>
   </div>
-
+  <div class="row">
+    <div  class="col ">
+      <h3>Descripción:</h3>
+      <p>{{juego.short_description}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>Fecha:</h4>
+    </div>
+    <div class="col">
+      <h6>{{juego.release_date}}</h6>
+    </div>
+    <div class="col">
+      <h4>Genero:</h4>
+    </div>
+    <div class="col">
+      <h6>{{juego.genre}}</h6>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>Plataforma:</h4>
+      </div>
+      <div class="col">
+        <h6>{{juego.platform}}</h6>
+      </div>
+      <div class="col">
+        <h4>Desarrollado por:</h4>
+      </div>
+      <div class="col">
+        <h6>{{juego.publisher}}</h6>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+

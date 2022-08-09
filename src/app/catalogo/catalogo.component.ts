@@ -15,8 +15,10 @@ import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 })
 export class CatalogoComponent implements OnInit {
   // lista de juegos
+  idJuegoSeleccionado : string  = '';
   catalogoJuegos: Catalogo[] =[];
   carousel : Caratula [] = [];
+  display : boolean =false;
   //mostrar item de carousel
   responsiveOptions = [
     {
@@ -45,9 +47,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('hola',this.carousel);
     this.cargarCatalogo();
-    console.log('hola',this.carousel);
   }
   // cargar catalogo
   cargarCatalogo():void{
@@ -55,7 +55,6 @@ export class CatalogoComponent implements OnInit {
       (juegos) =>{
 
         this.catalogoJuegos = juegos;
-        console.log(this.catalogoJuegos);
         this.cargarCarousel();
         this.catalogoVisible = true;
       }
@@ -70,7 +69,6 @@ export class CatalogoComponent implements OnInit {
      });
     };
     this.caratulaVisible = true;
-    console.log('anashe',this.carousel,this.caratulaVisible);
   }
   //retornar substring
   anioLanzamiento(anio : string){
@@ -85,4 +83,14 @@ export class CatalogoComponent implements OnInit {
     dialogConfig.autoFocus = true;
     this.dialogRef.open(FiltroComponent,dialogConfig);
   }
+  //mostrar detalle de Juego
+  mostrarDetalle(id :number){
+    this.idJuegoSeleccionado = id.toString();
+    this.display = true;
+
+  }
+  borrarId(){
+    this.idJuegoSeleccionado = '';
+  }
+
 }

@@ -3,7 +3,7 @@
     <p-progressSpinner *ngIf="!caratulaVisible; else caratulas" class="d-flex justify-content-center"></p-progressSpinner>
     <!-- caratulas - Carousel -->
     <ng-template #caratulas >
-      <p-carousel [value]="carousel" [page]="0" [autoplayInterval]="3000"  [responsiveOptions]="responsiveOptions" [showIndicators]="true" [showNavigators]="false" styleClass="p-carousel-next .p-carousel-prev" >
+      <p-carousel [value]="carousel" [page]="0" [autoplayInterval]="3000"   [showIndicators]="false" [showNavigators]="false" styleClass="p-carousel-next .p-carousel-prev" >
         <ng-template let-juego pTemplate="item">
           <app-carousel [juego]="juego"></app-carousel>
         </ng-template>
@@ -11,15 +11,17 @@
     </ng-template>
   </div>
   <div class="row">
-    <h1>Todos los juegos:</h1>
+    <h3>Todos los juegos:</h3>
   </div>
   <div class="row">
+
+
     <!-- Catalogo - carousel -->
       <p-progressSpinner *ngIf="!catalogoVisible; else catalogo" class="d-flex justify-content-center"></p-progressSpinner>
       <ng-template #catalogo>
-          <p-carousel [value]="catalogoJuegos" [numVisible]="3" [numScroll]="3" [page]="4" [responsiveOptions]="responsiveOptions"  [autoplayInterval]="9000" [circular]="true" [showIndicators]="false" >
+          <p-carousel [value]="catalogoJuegos" [numVisible]="3" [numScroll]="3" [page]="1" [responsiveOptions]="responsiveOptions"  [autoplayInterval]="9000" [circular]="true" [showIndicators]="false" >
             <ng-template let-juego pTemplate="item">
-              <a [routerLink]="['/detalle',juego.id]" style="text-decoration: none;">
+              <button type="button"  (click)="mostrarDetalle(juego.id)" >
                 <p-card header="{{juego.title}}"  subheader="{{juego.genre}}" [style]="{'width': '25rem', 'margin-bottom': '2em'}" styleClass="tarjeta" >
                   <ng-template pTemplate="header">
                     <img alt="Card" src="{{juego.thumbnail}}">
@@ -28,12 +30,17 @@
                   <p> Lanzamiento: {{anioLanzamiento(juego.release_date)}}</p>
                 </ng-template>
                 </p-card>
-              </a>
+              </button>
             </ng-template>
           </p-carousel>
       </ng-template>
 
   </div>
+  <div class="row" *ngIf="idJuegoSeleccionado != ''">
+    <p-dialog [style]="{width: '80vw'}" [transitionOptions]="'250ms'" [modal]="true" [(visible)]="display" (onHide)="borrarId()" [breakpoints]="{'960px': '75vw', '640px': '100vw'}">
+      <app-detalle-juego [id]="idJuegoSeleccionado"></app-detalle-juego>
+  </p-dialog>
+
 </div>
 
 
