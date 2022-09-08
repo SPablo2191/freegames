@@ -32,6 +32,8 @@ import {DialogModule} from 'primeng/dialog';
 import {SidebarModule} from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
+import {TabViewModule} from 'primeng/tabview';
+
 //material angular
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -74,7 +76,8 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     DialogModule,
     SidebarModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

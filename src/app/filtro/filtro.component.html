@@ -1,60 +1,31 @@
-<div class="container mr-4" >
+<div class="container">
 
-
-  <!-- categorias -->
   <div class="row">
-    <div class="col">
-      <h4>Categorias:</h4>
-      <hr>
-      <div class="container d-flex justify-content-center">
-        <div class="col">
-          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:1:5">
-            <mat-checkbox [color]="{name: 'Warn', completed: false, color: 'warn'}"  class="p-2" name="{{item.key}}">
-              {{item.key}}
-            </mat-checkbox>
-          </div>
-        </div>
-        <div class="col">
-          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:5:9">
-            <mat-checkbox  class="p-2" name="{{item.key}}">
-              {{item.key}}
-            </mat-checkbox>
-          </div>
-        </div>
-        <div class="col">
-          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:9:13">
-            <mat-checkbox  class="p-2" name="{{item.key}}">
-              {{item.key}}
-            </mat-checkbox>
-          </div>
-        </div>
-        <div class="col ">
-          <div class="row" *ngFor="let item of listaCategorias | keyvalue | slice:13">
-            <mat-checkbox  class="p-2" name="{{item.key}}">
-              {{item.key}}
-            </mat-checkbox>
-          </div>
-        </div>
-      </div>
+    <h2>Categorias:</h2>
 
+    <hr>
 
-      <!-- plataformas -->
-    </div>
-    <div class="row">
-      <div class="col-11">
-        <h4>Plataformas</h4>
-        <hr>
-        <ul class="listaFiltro">
-          <li  *ngFor="let item of listaPlataforma | keyvalue">
-            <mat-checkbox  class="p-2" name="{{item.key}}">
-              {{item.value}}
-            </mat-checkbox>
-          </li>
-        </ul>
+  </div>
+
+  <div class="row">
+
+    <div class="container">
+      <div *ngFor="let item of listaCategorias | keyvalue">
+        <p-checkbox name="groupname" value="item" label="{{item.key}}" ></p-checkbox>
       </div>
     </div>
 
   </div>
+  <div class="row">
+    <h2>Plataformas:</h2>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div *ngFor="let item of listaPlataforma | keyvalue">
+        <p-checkbox name="groupname" value="item" label="{{item.key}}" ></p-checkbox>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-

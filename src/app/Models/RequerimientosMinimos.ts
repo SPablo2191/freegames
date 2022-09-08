@@ -1,4 +1,4 @@
-export interface RequerimietosMinimos
+export interface RequerimientosMinimos
 {
   graphics : string;
   memory : string;

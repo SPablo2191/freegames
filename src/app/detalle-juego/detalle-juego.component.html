@@ -16,40 +16,53 @@
     </div>
   </div>
   <div class="row ">
-    <div  class="col-9">
+    <div  class="col-10">
       <h3>Descripción:</h3>
     </div>
-    <div class="col-2">
+    <div class="col">
       <button class="btn btn-primary btn-lg">Ir al foro</button>
     </div>
   </div>
   <div class="row ">
-    <div class="col-2">
-      <h5>Fecha:</h5>
+    <div class="col-4">
+      <h6>Fecha: {{juego.release_date}}</h6>
     </div>
-    <div class="col-2">
-      <h6 >{{juego.release_date}}</h6>
-    </div>
-    <div class="col-2">
-      <h5>Genero:</h5>
-    </div>
-    <div class="col-2">
-      <h6 >{{juego.genre}}</h6>
+    <div class="col">
+      <h6>Genero: {{juego.genre}}</h6>
     </div>
     <div class="row">
-      <div class="col-2">
-        <h5>Plataforma:</h5>
+      <div class="col-4">
+        <h6>Plataforma: {{juego.platform}}</h6>
       </div>
-      <div class="col-2">
-        <h6>{{juego.platform}}</h6>
-      </div>
-      <div class="col-2">
-        <h5>Empresa:</h5>
-      </div>
-      <div class="col-2">
-        <h6 >{{juego.publisher}}</h6>
+      <div class="col">
+        <h6>Empresa: {{juego.publisher}}</h6>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <hr>
+    <p-tabView>
+      <p-tabPanel header="Requerimientos minimos">
+        <div class="container-fluid">
+          <div class="row">
+            <p>Graficos: {{juego.minimum_system_requirements.graphics}}</p>
+          </div>
+          <div class="row">
+            <p>Memoria: {{juego.minimum_system_requirements.memory}}</p>
+          </div>
+          <div class="row">
+            <p>Sistema Operativo: {{juego.minimum_system_requirements.os}}</p>
+          </div>
+          <div class="row">
+            <p>Almacenamiento: {{juego.minimum_system_requirements.storage}}</p>
+          </div>
+          <div class="row">
+            <p>Procesador: {{juego.minimum_system_requirements.processor}}</p>
+          </div>
+        </div>
+      </p-tabPanel>
+  </p-tabView>
+
   </div>
 </div>
 
